@@ -1,0 +1,9 @@
+{
+    "short_name": "托辊监测系统",
+    "name": "带式输送机托辊监测系统",
+    "icons": [],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }

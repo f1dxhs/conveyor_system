@@ -1,0 +1,49 @@
+<!-- backend/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>托辊监测系统</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .status-light { 
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
+            display: inline-block;
+            background-color: #4caf50; /* 绿色 */
+        }
+        .container { margin: 20px; padding: 20px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>带式输送机托辊监测系统</h1>
+    
+    <div class="container">
+        <h2>轴承温度状态</h2>
+        <div class="status-light" id="tempLight"></div>
+        <p>当前温度: <span id="currentTemp">--</span>°C</p>
+        <button onclick="testTemperature()">测试温度变化</button>
+    </div>
+
+    <script>
+        // 简单模拟温度变化
+        function testTemperature() {
+            const temps = [45, 65, 85]; // 正常、警告、危险
+            const temp = temps[Math.floor(Math.random() * temps.length)];
+            document.getElementById('currentTemp').textContent = temp;
+            
+            const light = document.getElementById('tempLight');
+            if (temp < 60) {
+                light.style.backgroundColor = '#4caf50'; // 绿色
+            } else if (temp < 80) {
+                light.style.backgroundColor = '#ff9800'; // 黄色
+            } else {
+                light.style.backgroundColor = '#f44336'; // 红色
+            }
+        }
+        
+        // 页面加载后自动测试
+        window.onload = testTemperature;
+    </script>
+</body>
+</html>
